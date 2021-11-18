@@ -22,7 +22,7 @@ const PadLayout = () =>{
         "clear", "0",
     ];
     const enterPin = () =>{
-        if(commaSep === "OK" || commaSep === "ERROR" || commaSep === "LOCKED") return;
+        if(commaSep === "ERROR" || commaSep === "LOCKED") return;
         setCounter(counter+1);
         console.log('counter: ',counter);
         if(counter > 2 && commaSep!== mainPin){
@@ -67,15 +67,8 @@ const PadLayout = () =>{
                     if(commaSep === "OK" || commaSep === "ERROR" || commaSep === "LOCKED"){
                         setText();
                         setInputValue([]);
-                        
-                        number = parseInt(keys);
-                           if(commaSep.length < 4){
-                           setInputValue([...inputValue, {
-                           value: number
-                        }]);
-                    }
                 }
-                       
+               
                        if(keys === "clear") {
                            setText();
                             setInputValue([]);

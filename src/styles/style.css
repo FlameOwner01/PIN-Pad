@@ -83,3 +83,16 @@
 .pin-login-key:active{
     background: rgba(0, 0, 0, 0.75);
 }
+
+@media only screen and (max-width: 600px){
+    .pin-login{
+        display: grid;
+        width: 350px;
+        align-items:flex-start;
+        padding: inherit;
+    }
+    .pin-login-numpad{
+        width: 350px;
+    
+    }
+}

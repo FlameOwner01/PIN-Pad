@@ -42,16 +42,28 @@ const PadLayout = () =>{
             setInputValue([...commaSep, {value: "ERROR"}]);
             
         }
-        else{
+        else if (commaSep === mainPin){
+            setIsDisabled(true);
             setInputText("text");
             setInputValue([...commaSep, {value: "OK"}]);
-            setIsDisabled(true);
+            
+            setTimeout(function(){
+                setInputValue([]);
+                setText();
+                setIsDisabled(false);
+        }, 3000);
+       
+            setCounter(1);
+            
+            
         }
+
         
     }
     const setText = () =>{
         setInputText("password");
     }
+   
 
     return (
         
@@ -63,10 +75,15 @@ const PadLayout = () =>{
                {pad.map((keys, i)=>{
                    
                    return <input className="pin-login-key" type="button" id="but" value={keys} key = {i} disabled={isDisabled} onClick={() =>{
-                    
-                    if(commaSep === "OK" || commaSep === "ERROR" || commaSep === "LOCKED"){
+                    if(inputText === "OK"){
+                        setInputValue([]);
+                        setText();
+                         
+                    }
+                    if(inputText === "ERROR" || inputText === "LOCKED"){
                         setText();
                         setInputValue([]);
+                        
                 }
                
                        if(keys === "clear") {
